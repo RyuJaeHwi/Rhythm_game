@@ -1,8 +1,8 @@
-// SelectPage.js | 2024.10.30 음악 선택 페이지에서 (/select -> /practice) 음악 데이터 정보 전달 기능 추가
+// GameSelectPage.js | 2024.11.09 리듬게임 전용 음악 선택 페이지에서 (/game_select -> /game) 음악 데이터 정보 전달 기능 추가
 /* module 불러오기 */
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./SelectPage.css";
+import "./GameSelectPage.css"; // (수정된 부분)
 /* 노래 & 앨범커버 불러오기 */
 import noSongCover from "../images/no_song_cover.png";
 import prettyCover from "../images/DAY6-예뻤어_cover.png";
@@ -11,7 +11,7 @@ import smartphonePreview from "../music/DAY6-예뻤어.mp3";
 import hateRodrigoPreview from "../music/DAY6-한 페이지가 될 수 있게.mp3";
 import songPlayerIcon from "../images/song_player.png";
 
-const SelectPage = () => {
+const GameSelectPage = () => {
   const [selectedSong, setSelectedSong] = useState(null);
   const [audio, setAudio] = useState(null);
   const navigate = useNavigate();
@@ -59,44 +59,41 @@ const SelectPage = () => {
     navigate("/main"); // 메인 페이지(/main)로 이동
   };
 
-  // /practice 페이지로 이동
-  const handleStartPractice = () => {
+  // /game 페이지로 이동 (리듬게임 시작)
+  const handleStartGame = () => {
     if (selectedSong) {
-      navigate("/practice", { state: { song: selectedSong } }); // 선택한 음악 데이터 전달
+      navigate("/game", { state: { song: selectedSong } }); // 선택한 음악 데이터 전달
     }
   };
 
   /* UI 구성 */
   return (
-    <div className="selectpage">
-      {/* 연습하기 앨범 커버 이미지 (선택X, 선택O) */}
+    <div className="gameselectpage">
+      {/* 리듬게임 앨범 커버 이미지 (선택X, 선택O) */}
       <div className="album_cover">
         {/* 노래 제목 클릭 후, 해당 음악 앨범 커버로 변경 */}
         {selectedSong ? (
           <div className="selected_song">
             <img src={selectedSong.cover} alt="Album Cover" />
             <h2>{selectedSong.title}</h2>
-            <button
-              className="practice_start_button"
-              onClick={handleStartPractice}
-            >
-              시작하기
+            <button className="game_start_button" onClick={handleStartGame}>
+              게임 시작
             </button>
           </div>
         ) : (
-          <div className="no_song_select">
+          <div className="game_no_song_select">
             {/* 노래 제목 클릭 전에는 선택X의 의미인 빈 앨범 커버 */}
             <img src={noSongCover} alt="No Song Cover" />
           </div>
         )}
       </div>
-      {/* 연습하기 음악 선택 플레이리스트*/}
+      {/* 리듬게임 음악 선택 플레이리스트*/}
       <div className="playlist">
         <h3>PLAYLIST</h3>
         {/* 선택1 : "DAY6 - 예뻤어" */}
         <button
           type="button"
-          className="listed_song"
+          className="game_listed_song"
           onClick={() =>
             handleSongClick(
               {
@@ -112,14 +109,13 @@ const SelectPage = () => {
           <img
             src={songPlayerIcon}
             alt="Play Icon"
-            className="song_player_icon"
+            className="game_song_player_icon"
           />
         </button>
-
         {/* 선택2 : "DAY6 - 한 페이지가 될 수 있게" */}
         <button
           type="button"
-          className="listed_song"
+          className="game_listed_song"
           onClick={() =>
             handleSongClick(
               {
@@ -135,7 +131,7 @@ const SelectPage = () => {
           <img
             src={songPlayerIcon}
             alt="Play Icon"
-            className="song_player_icon"
+            className="game_song_player_icon"
           />
         </button>
       </div>
@@ -143,7 +139,7 @@ const SelectPage = () => {
       {/* '메인으로' 버튼 (/main으로 이동) */}
       <button
         type="button"
-        className="select_go_main_button"
+        className="game_select_go_main_button"
         onClick={handleGoToMain}
       >
         메인으로
@@ -152,4 +148,4 @@ const SelectPage = () => {
   );
 };
 
-export default SelectPage;
+export default GameSelectPage;

@@ -1,8 +1,9 @@
-/* http://localhost:3000/select 페이지 UI 디자인 */
+/* /game_select 페이지 UI 디자인 | 2024.11.09 리듬게임 전용 음악 선택 페이지 .css 파일 추가 */
+/* 기본적인 스타일은 SelectPage.css와 동일하게 유지 */
 @import "./default.css";
 
-/* SelectPage 페이지 전체 옵션 */
-.selectpage {
+/* GameSelectPage 페이지 전체 옵션 */
+.gameselectpage {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -15,26 +16,26 @@
 
 /* ========================================================================== */
 /* 미리듣기 앨범 커버 전체 옵션 */
-.selected_song {
+..selected_song {
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
   margin-left: 10px;
 }
 
-.selected_song img {
+..selected_song img {
   width: 600px;
   height: auto;
   margin-bottom: 20px;
 }
 
-.selected_song h2 {
+..selected_song h2 {
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-.selected_song .practice_start_button {
+..selected_song .game_start_button {
   width: 220px;
   height: 55px;
   /* background-color: black;
@@ -47,14 +48,14 @@
 
 /* ========================================================================== */
 /* 미리듣기 선택X 일 때 앨범 커버 옵션 */
-.no_song_select {
+.game_no_song_select {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 300px;
 }
 
-.no_song_select img {
+.game_no_song_select img {
   width: 600px;
   height: auto;
   object-fit: cover;
@@ -68,7 +69,7 @@
 }
 
 .album_cover img {
-  width: 700px;
+  width: 400px;
   height: auto;
   margin-bottom: 20px;
   margin-left: 130px;
@@ -83,7 +84,7 @@
 /* ========================================================================== */
 
 /* 미리듣기 선택 노래 옵션 (화면 왼쪽) */
-.listed_song {
+.game_listed_song {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -118,10 +119,9 @@
   font-size: 40px;
   margin-bottom: 20px;
 }
-/* ========================================================================== */
 
-/* '시작하기' 버튼 옵션 (연습시작) */
-.practice_start_button {
+/* '시작하기' 버튼 옵션 (리듬게임 시작) */
+.game_start_button {
   width: 200px;
   height: 50px;
   background-color: black;
@@ -134,14 +134,14 @@
 }
 
 /* 리스트 노래제목 옆 재생버튼 이미지 옵션 */
-.song_player_icon {
+.game_song_player_icon {
   width: 30px;
   height: auto;
   margin-left: 10px;
 }
 
 /* '메인으로' 버튼 옵션 */
-.select_go_main_button {
+.game_select_go_main_button {
   position: absolute;
   bottom: 40px;
   right: 50px;

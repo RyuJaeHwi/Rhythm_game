@@ -14,7 +14,12 @@ import MyPage from "./components/MyPage";
 import PracticePage from "./components/Practice/PracticePage";
 
 /* GamePage  경로 임시 추가 */
-import GamePage from "./components/GamePage"
+import GamePage from "./components/GamePage";
+
+/* 2024.11.9 | Game_SelectPage 경로 추가 (추가된 부분) */
+import GameSelectPage from "./components/GameSelectPage";
+
+import ResultPage from "./components/ResultPage";
 
 function App() {
   return (
@@ -31,6 +36,10 @@ function App() {
 
         {/* GamePage  경로 임시 추가 */}
         <Route path="/game" element={<GamePage />} />
+
+        {/* Game_SelectPage 경로 추가 (추가된 부분) */}
+        <Route path="/game_select" element={<GameSelectPage />} />
+        <Route path="/result" element={<ResultPage />} />
       </Routes>
     </Router>
   );
