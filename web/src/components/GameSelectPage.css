@@ -1,3 +1,5 @@
+/* GameSelectPage.css */
+
 /* /game_select 페이지 UI 디자인 | 2024.11.09 리듬게임 전용 음악 선택 페이지 .css 파일 추가 */
 /* 기본적인 스타일은 SelectPage.css와 동일하게 유지 */
 @import "./default.css";
@@ -9,40 +11,42 @@
   align-items: center;
   justify-content: space-between;
   height: 100vh;
-  ackground-color: #f5f5f5;
+  background-color: #f5f5f5;
   position: relative;
   padding: 0 40px; /* 왼쪽 미리듣기 곡 ~ 오른쪽 플레이리스트 사이 간격 (+ 양끝) */
 }
 
 /* ========================================================================== */
 /* 미리듣기 앨범 커버 전체 옵션 */
-..selected_song {
+.selected_song {
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
   margin-left: 10px;
 }
 
-..selected_song img {
+.selected_song img {
   width: 600px;
   height: auto;
   margin-bottom: 20px;
 }
 
-..selected_song h2 {
+.selected_song h2 {
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-..selected_song .game_start_button {
+.selected_song .game_start_button {
   width: 220px;
   height: 55px;
-  /* background-color: black;
-  color: white; */
+  background-color: black;
+  color: white;
   font-size: 20px;
   border-radius: 30px;
-  /* margin-top: 20px; */
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
 }
 /* ========================================================================== */
 
@@ -131,6 +135,7 @@
   cursor: pointer;
   margin-top: 20px;
   margin-left: 130px;
+  border-radius: 25px; /* 버튼을 둥글게 만듭니다 */
 }
 
 /* 리스트 노래제목 옆 재생버튼 이미지 옵션 */

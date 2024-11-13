@@ -1,6 +1,6 @@
 /* ResultPage.css */
 
-.result_page {
+.resultpage {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,37 +9,39 @@
   background-color: #f7f7f7;
   padding: 20px;
   box-sizing: border-box;
+  text-align: center;
 }
 
-.result_page h1 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
+.resultpage h1 {
+  font-size: 40px;
+  color: #52484d;
+  margin-bottom: 16px;
 }
 
-.result_page h2 {
-  font-size: 2rem;
-  color: #4caf50;
-  margin-bottom: 1rem;
+.resultpage h2 {
+  font-size: 32px;
+  color: #6b6968;
+  margin-bottom: 24px; /* 점수와 다음 요소 사이의 간격을 조정 */
 }
 
-.result_page p {
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 2rem;
+.resultpage p {
+  font-size: 19.2px;
+  color: #6b6968;
+  margin-bottom: 32px;
 }
 
-.back_button {
+.result_back_button {
   padding: 10px 20px;
-  font-size: 1rem;
+  font-size: 20px;
   color: #000000;
-  background-color: #d1e9c5;
+  background-color: #bcb2d3;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 32px; /* 버튼과 위 요소 사이의 간격을 넓히기 위해 추가 */
 }
 
 .back_button:hover {
-  background-color: #d1e9c5;
+  background-color: #c5ddb5;
 }

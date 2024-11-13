@@ -11,13 +11,13 @@ const GamePretty = ({ isPlaying, onGameEnd }) => {
   const [hitResult, setHitResult] = useState({ a: "", s: "", d: "" });
   const [score, setScore] = useState(0);
   const [totalNotes, setTotalNotes] = useState(0);
+  const [perfectCount, setPerfectCount] = useState(0);
+  const [goodCount, setGoodCount] = useState(0);
+  const [badCount, setBadCount] = useState(0);
 
-  // 기준선 y 좌표 (아래에 위치한 기준선의 y 값) - 값을 더 위쪽으로 조정
-  const targetLineY = 530; // 기존 550에서 500으로 변경하여 기준선을 더 위로 올립니다.
-  // 직사각형의 하단 y 좌표보다 조금 위쪽으로 설정
+  const targetLineY = 530;
   const bottomLineY = 580;
 
-  // 키보드 이벤트 핸들러 함수 (useCallback으로 감싸기)
   const handleKeyDown = useCallback((event) => {
     if (event.key === "a") {
       setIsAKeyPressed(true);
@@ -41,7 +41,6 @@ const GamePretty = ({ isPlaying, onGameEnd }) => {
     }
   }, []);
 
-  // 노트가 기준선 근처에 있는지 확인하는 함수
   const checkNoteHit = (position) => {
     setNotes((prevNotes) =>
       prevNotes.filter((note) => {
@@ -50,26 +49,26 @@ const GamePretty = ({ isPlaying, onGameEnd }) => {
 
           let result = "";
           let points = 0;
-          // 거리 차이에 따라 결과 판정
           if (distance <= 20) {
             result = "Perfect";
             points = 10;
+            setPerfectCount((prev) => prev + 1);
           } else if (distance <= 50) {
             result = "Good";
             points = 5;
+            setGoodCount((prev) => prev + 1);
           } else if (distance <= 100) {
             result = "Bad";
             points = 0;
+            setBadCount((prev) => prev + 1);
           } else {
-            return true; // 거리가 너무 멀면 제거하지 않음
+            return true;
           }
 
-          // 판정 결과 상태 업데이트 및 점수 추가
           setHitResult((prev) => ({ ...prev, [position]: result }));
           setScore((prevScore) => prevScore + points);
           setTotalNotes((prevTotal) => prevTotal + 1);
 
-          // 일정 시간 후 판정 결과 제거
           setTimeout(() => {
             setHitResult((prev) => ({ ...prev, [position]: "" }));
           }, 300);
@@ -81,7 +80,6 @@ const GamePretty = ({ isPlaying, onGameEnd }) => {
     );
   };
 
-  // 이벤트 리스너 등록 및 해제
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
@@ -92,7 +90,6 @@ const GamePretty = ({ isPlaying, onGameEnd }) => {
     };
   }, [handleKeyDown, handleKeyUp]);
 
-  // 노트 이동 로직 및 채보 데이터에 따라 노트 추가
   useEffect(() => {
     let animationFrame;
 
@@ -104,11 +101,12 @@ const GamePretty = ({ isPlaying, onGameEnd }) => {
             if (note.y > bottomLineY) {
               console.log("Bad - Missed the note");
               setHitResult((prev) => ({ ...prev, [note.position]: "Bad" }));
+              setBadCount((prev) => prev + 1);
               setTotalNotes((prevTotal) => prevTotal + 1);
               setTimeout(() => {
                 setHitResult((prev) => ({ ...prev, [note.position]: "" }));
               }, 500);
-              return false; // 노트가 화면 아래로 내려가기 전에 제거
+              return false;
             }
             return true;
           })
@@ -117,8 +115,7 @@ const GamePretty = ({ isPlaying, onGameEnd }) => {
     };
 
     if (isPlaying) {
-      // 게임이 시작될 때 채보 데이터에 따라 노트 추가
-      setNotes([]); // 기존 노트 초기화
+      setNotes([]);
       prettyNotes.forEach((note) => {
         setTimeout(() => {
           setNotes((prevNotes) => [
@@ -138,10 +135,26 @@ const GamePretty = ({ isPlaying, onGameEnd }) => {
   // 게임 종료 시 결과 계산 및 전송
   useEffect(() => {
     if (!isPlaying && totalNotes > 0) {
-      const accuracy = ((score / (totalNotes * 10)) * 100).toFixed(2);
-      onGameEnd(accuracy);
+      const maxScore = totalNotes * 10; // 최대 점수는 총 노트 수 * 10
+      const accuracy = ((score / maxScore) * 100).toFixed(2); // 정확도 계산
+      onGameEnd({
+        accuracy,
+        score,
+        totalNotes,
+        perfectCount,
+        goodCount,
+        badCount,
+      });
     }
-  }, [isPlaying, totalNotes, score, onGameEnd]);
+  }, [
+    isPlaying,
+    totalNotes,
+    score,
+    onGameEnd,
+    perfectCount,
+    goodCount,
+    badCount,
+  ]);
 
   return (
     <div className="game_container">

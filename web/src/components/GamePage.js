@@ -12,6 +12,11 @@ const GamePage = () => {
   const [currentTime, setCurrentTime] = useState(0); // 재생된 시간 관련 옵션
   const [duration, setDuration] = useState(0); // 오디오 전체 길이 관련 옵션
   const [accuracy, setAccuracy] = useState(null);
+  const [scoreDetails, setScoreDetails] = useState({
+    accuracy: 0,
+    score: 0,
+    totalNotes: 0,
+  }); // 점수 세부 정보 추가
   const audioRef = useRef(null); // 추가한 파트: 오디오 객체 참조를 위한 useRef 사용
   const navigate = useNavigate();
   const location = useLocation();
@@ -73,28 +78,33 @@ const GamePage = () => {
     }
   };
 
-  // 음악 일시정지 버튼 클릭 시 실행
-  const handlePauseClick = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    }
-  };
-
   // 게임 종료 시 실행되는 함수
-  const handleGameEnd = (accuracyValue) => {
-    // accuracyValue가 없는 경우 기본값으로 사용 (게임 종료 시 자동 처리)
-    if (accuracyValue !== undefined) {
-      setAccuracy(accuracyValue);
+  const handleGameEnd = (gameResult) => {
+    if (gameResult) {
+      setScoreDetails(gameResult); // 게임 결과를 scoreDetails로 저장합니다.
+      setAccuracy(gameResult.accuracy);
     } else {
-      setAccuracy(75); // 기본 테스트 점수 (나중에 게임 종료시 점수로 대체)
+      setScoreDetails({
+        accuracy: 0,
+        score: 0,
+        totalNotes: 0,
+        perfectCount: 0,
+        goodCount: 0,
+        badCount: 0,
+      }); // 기본값 설정
     }
-    setIsPlaying(false); // 게임 종료 처리
+    setIsPlaying(false);
   };
 
   // '결과보기' 버튼 클릭 시 실행
+  // const handleResultClick = () => {
+  //   navigate("/result", { state: { accuracy, scoreDetails } });
+  // };
+  // '결과보기' 버튼 클릭 시 실행
   const handleResultClick = () => {
-    navigate("/result", { state: { accuracy } });
+    navigate("/result", {
+      state: { scoreDetails },
+    });
   };
 
   // 웹소켓 서버 연결 설정
@@ -185,15 +195,22 @@ const GamePage = () => {
           <button onClick={handlePlayClick} className="play_button">
             재생
           </button>
-          <button onClick={handlePauseClick} className="pause_button">
-            일시정지
-          </button>
           {accuracy !== null && (
             <button onClick={handleResultClick} className="result_button">
               결과보기
             </button>
           )}
         </div>
+
+        {/* 정확도 세부 정보 및 최종 점수 */}
+        {/* {scoreDetails.accuracy !== null && (
+          <div className="gamepage_score_details">
+            <h3>Score Details:</h3>
+            <p>Accuracy: {scoreDetails.accuracy}%</p>
+            <p>Score: {scoreDetails.score}</p>
+            <p>Total Notes: {scoreDetails.totalNotes}</p>
+          </div>
+        )} */}
       </div>
     </div>
   );

@@ -77,7 +77,7 @@ const GameSelectPage = () => {
             <img src={selectedSong.cover} alt="Album Cover" />
             <h2>{selectedSong.title}</h2>
             <button className="game_start_button" onClick={handleStartGame}>
-              게임 시작
+              시작하기
             </button>
           </div>
         ) : (
