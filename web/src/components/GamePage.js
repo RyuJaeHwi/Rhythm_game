@@ -1,4 +1,4 @@
-// GamePage.js
+// src/components/GamePage.js
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import GoBackGameSelectButton from "./RhythmGame/goback_gameselectbutton";
@@ -8,16 +8,17 @@ import GameOnePage from "./RhythmGame/game_onepage";
 
 const GamePage = () => {
   const [pressCount, setPressCount] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false); // 음악 재생 관련 옵션
   const [currentTime, setCurrentTime] = useState(0); // 재생된 시간 관련 옵션
-  const [duration, setDuration] = useState(0); // 오디오 전체 길이 관련 옵션
+  const [duration, setDuration] = useState(0); // 음악 전체 길이 관련 옵션
   const [accuracy, setAccuracy] = useState(null);
+  // 아래는 리듬게임 점수 관련 옵션
   const [scoreDetails, setScoreDetails] = useState({
     accuracy: 0,
     score: 0,
     totalNotes: 0,
   }); // 점수 세부 정보 추가
-  const audioRef = useRef(null); // 추가한 파트: 오디오 객체 참조를 위한 useRef 사용
+  const audioRef = useRef(null); // 오디오 객체 참조를 위한 useRef 사용
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -25,6 +26,7 @@ const GamePage = () => {
   const selectedSong = location.state?.song;
 
   // 음악이 선택되지 않았을 경우 game_select 페이지로 리다이렉트
+  // URL 수정하여 강제로 /game 페이지로 가려할 때 작동
   useEffect(() => {
     if (!selectedSong) {
       navigate("/game_select");
@@ -33,18 +35,20 @@ const GamePage = () => {
 
   useEffect(() => {
     if (selectedSong) {
-      audioRef.current = new Audio(selectedSong.preview); // 오디오 객체 생성
+      // 노래 제목 클릭 시 미리듣기
+      audioRef.current = new Audio(selectedSong.preview);
     }
 
     if (audioRef.current) {
-      // 오디오 메타데이터 로드 시 오디오의 전체 길이 설정
+      // 오디오 재생 됨 -> 오디오의 전체 재생 길이 가져와서 설정 (얼마나 재생하는지, 아래 Time Bar 관련 등)
       audioRef.current.onloadedmetadata = () => {
         if (audioRef.current) {
           setDuration(audioRef.current.duration);
         }
       };
 
-      // 오디오 재생 시간이 변할 때마다 currentTime 업데이트
+      // 오디오 재생 시간이 변할 때마다 현재 어느정도 재생되었는지를 업데이트
+      // 아래 Time Bar 기능으로 쓰임
       audioRef.current.ontimeupdate = () => {
         if (audioRef.current) {
           setCurrentTime(audioRef.current.currentTime);
@@ -52,8 +56,9 @@ const GamePage = () => {
       };
     }
 
-    // cleanup : 컴포넌트가 언마운트될 때 오디오 객체 중지 및 초기화
+    // 컴포넌트가 언마운트될 때 오디오 객체 중지 및 초기화
     return () => {
+      // 오디오 아직 있으면 중지하고 초기화 (= 정보 제거)
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current = null;
@@ -68,9 +73,9 @@ const GamePage = () => {
         await audioRef.current.play();
         setIsPlaying(true);
 
-        // 음악이 끝났을 때 게임 종료 처리
+        // 음악 재생이 끝남 -> 게임 종료
         audioRef.current.onended = () => {
-          handleGameEnd(); // 게임 종료 처리
+          handleGameEnd(); // 아래 점수 계산 함수로 이동
         };
       } catch (error) {
         console.error("Audio play error:", error);
@@ -78,12 +83,13 @@ const GamePage = () => {
     }
   };
 
-  // 게임 종료 시 실행되는 함수
+  // 게임 종료 후 점수 계산 함수
   const handleGameEnd = (gameResult) => {
     if (gameResult) {
-      setScoreDetails(gameResult); // 게임 결과를 scoreDetails로 저장합니다.
+      setScoreDetails(gameResult);
       setAccuracy(gameResult.accuracy);
     } else {
+      // 정보 X -> 싹 다 0점 처리
       setScoreDetails({
         accuracy: 0,
         score: 0,
@@ -91,7 +97,7 @@ const GamePage = () => {
         perfectCount: 0,
         goodCount: 0,
         badCount: 0,
-      }); // 기본값 설정
+      });
     }
     setIsPlaying(false);
   };
@@ -107,6 +113,7 @@ const GamePage = () => {
     });
   };
 
+  /* -------------------------------------------------------------------- */
   // 웹소켓 서버 연결 설정
   useEffect(() => {
     const socket = new WebSocket("ws://localhost:3002"); // 3002 포트로 연결
@@ -135,12 +142,14 @@ const GamePage = () => {
       socket.close(); // 컴포넌트가 언마운트될 때 연결 종료
     };
   }, [selectedSong, navigate]);
+  /* -------------------------------------------------------------------- */
 
   // '돌아가기' 버튼 클릭 시 선택된 노래 정보 초기화 & 돌아감
   const resetSelection = () => {
     navigate("/game_select", { replace: true });
   };
 
+  /* UI 구성 */
   return (
     <div className="gamepage">
       <div className="gamepage_left">

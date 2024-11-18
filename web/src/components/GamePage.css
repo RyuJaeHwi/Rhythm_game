@@ -9,7 +9,7 @@
   justify-content: space-between;
   align-items: center;
   height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #f7e1f2;
   padding: 20px;
 }
 
@@ -26,7 +26,7 @@
 .gamepage_songtitle {
   font-size: 30px;
   font-weight: bold;
-  color: #402e41;
+  color: #776180;
   margin-bottom: 25px;
 }
 
@@ -37,6 +37,7 @@
   border-radius: 10px; /* 이미지 모서리를 둥글게 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
   margin-bottom: 30px; /* 추가된 부분: 이미지의 아래 여백을 줄일 수 있음 */
+  //border: 5px solid #b996b8;
 }
 
 /* 기타 contents 옵션 */
@@ -67,18 +68,18 @@
 /* '재생' 및 '일시정지' 버튼 스타일 */
 .game_controls {
   position: absolute;
-  bottom: 100px; /* 화면 하단에서 100px 위로 */
-  right: 50px; /* 화면 오른쪽에서 50px 왼쪽으로 */
+  bottom: 120px; /* 기존 100px에서 140px으로 수정하여 더 위로 올림 */
+  right: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 15px; /* 버튼 간 간격 */
 }
 
 .game_controls button {
   width: 100px;
-  height: 40px;
-  margin: 10px 0; /* 버튼 사이에 간격 추가 */
-  font-size: 16px;
+  height: 50px;
+  font-size: 22px;
   font-weight: bold;
   background-color: #ff66b2;
   color: white;
@@ -112,7 +113,7 @@
 .gamepage_timebar_title {
   font-size: 30px;
   font-weight: bold;
-  color: #575755;
+  color: #8e658c;
   text-align: center;
   margin-bottom: 25px;
 }

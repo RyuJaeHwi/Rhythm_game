@@ -10,35 +10,34 @@ import SignupPage from "./components/SignupPage";
 import MainPage from "./components/MainPage";
 import SelectPage from "./components/SelectPage";
 import MyPage from "./components/MyPage";
-// App.js | 2024.10.30 '연습하기' 페이지 (/practice) 추가
 import PracticePage from "./components/Practice/PracticePage";
-
-/* GamePage  경로 임시 추가 */
 import GamePage from "./components/GamePage";
-
-/* 2024.11.9 | Game_SelectPage 경로 추가 (추가된 부분) */
 import GameSelectPage from "./components/GameSelectPage";
-
 import ResultPage from "./components/ResultPage";
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* 시작 시 열리는 기본 localhost:3000 -> /login 페이지로 이동 */}
         <Route path="/" element={<Navigate to="/login" />} />
+        {/* 로그인 페이지 */}
         <Route path="/login" element={<LoginPage />} />
+        {/* 회원가입 페이지 */}
         <Route path="/signup" element={<SignupPage />} />
+        {/* 메인페이지 */}
         <Route path="/main" element={<MainPage />} />
+        {/* 음악 선택 페이지 ('연습하기' 버튼 클릭 후 열림) */}
         <Route path="/select" element={<SelectPage />} />
+        {/* 직전 리듬게임 결과 확인 페이지 */}
         <Route path="/mypage" element={<MyPage />} />
-        {/* App.js | 2024.10.30 '연습하기' 페이지 (/practice) 추가 */}
+        {/* 연습 페이지 (악보) */}
         <Route path="/practice" element={<PracticePage />} />
-
-        {/* GamePage  경로 임시 추가 */}
+        {/* 리듬게임 페이지 */}
         <Route path="/game" element={<GamePage />} />
-
-        {/* Game_SelectPage 경로 추가 (추가된 부분) */}
+        {/* 음악 선택 페이지 ('게임하기' 버튼 클릭 후 열림) */}
         <Route path="/game_select" element={<GameSelectPage />} />
+        {/* 리듬게임 결과 페이지 */}
         <Route path="/result" element={<ResultPage />} />
       </Routes>
     </Router>

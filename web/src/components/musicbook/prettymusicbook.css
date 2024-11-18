@@ -1,8 +1,5 @@
 /* src/components/musicbook/prettymusicbook.css */
 /* 마디별 네모박스로 연주할 부분 표시해주는 css 코드 */
-// prettymusicbook.css | 2024.10.30 '연습하기' 페이지에 "예뻤어" 악보 기능 임시 추가 (.css 디자인 코드)
-// /practice 페이지를 구성하는 PracticePage.js가 호출하여 사용하는 코드를 꾸며주는 .css 코드 (악보 기능 추가해줌)
-
 .musicbook {
   position: relative;
 }
@@ -15,6 +12,7 @@
 .sheet_image {
   width: 100%;
   height: auto;
+  //max-width: 700px; /* 화면이 커져도 일정 크기 이상 커지지 않도록 제한 */
 }
 
 .red_box {
@@ -24,262 +22,283 @@
 }
 
 /* 각 마디에 맞는 위치와 크기를 설정해주는 옵션 */
+/* 퍼센트(%) 단위 -> 창 크기에 따라 알맞게 마디(measure) 위치를 조정 */
+
+/* ---------------------------------------------------- */
+/* page1 */
 .measure-1 {
-  top: 105px;
-  left: 100px;
-  width: 150px;
-  height: 110px;
+  top: 40%;
+  left: 14.8%;
+  width: 21%;
+  height: 50%;
 }
 
 .measure-2 {
-  top: 105px;
-  left: 242px;
-  width: 150px;
-  height: 110px;
+  top: 40%;
+  left: 35%;
+  width: 21%;
+  height: 50%;
 }
 
 .measure-3 {
-  top: 105px;
-  left: 380px;
-  width: 150px;
-  height: 110px;
+  top: 40%;
+  left: 54.8%;
+  width: 21%;
+  height: 50%;
 }
 
 .measure-4 {
-  top: 105px;
-  left: 520px;
-  width: 150px;
-  height: 110px;
+  top: 40%;
+  left: 74.5%;
+  width: 21%;
+  height: 50%;
 }
+/* ---------------------------------------------------- */
 
+/* ---------------------------------------------------- */
 /* page2 */
 .measure-5 {
-  top: 7px;
-  left: 53px;
-  width: 165px;
-  height: 112px;
+  top: 3%;
+  left: 8%;
+  width: 22%;
+  height: 82%;
 }
 
 .measure-6 {
-  top: 7px;
-  left: 213px;
-  width: 165px;
-  height: 112px;
+  top: 3%;
+  left: 31%;
+  width: 22%;
+  height: 82%;
 }
 
 .measure-7 {
-  top: 7px;
-  left: 368px;
-  width: 165px;
-  height: 112px;
+  top: 3%;
+  left: 53%;
+  width: 22%;
+  height: 82%;
 }
 
 .measure-8 {
-  top: 7px;
-  left: 526px;
-  width: 165px;
-  height: 112px;
+  top: 3%;
+  left: 75%;
+  width: 22%;
+  height: 82%;
 }
+/* ---------------------------------------------------- */
 
+/* ---------------------------------------------------- */
 /* page3 */
 .measure-9 {
-  top: 7px;
-  left: 53px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 7%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-10 {
-  top: 7px;
-  left: 214px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 29%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-11 {
-  top: 7px;
-  left: 370px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 51%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-12 {
-  top: 7px;
-  left: 530px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 73%;
+  width: 20%;
+  height: 18%;
 }
+/* ---------------------------------------------------- */
 
-/* page4 (정말하루도~) */
+/* ---------------------------------------------------- */
+/* page4 */
 .measure-13 {
-  top: 6px;
-  left: 56px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 7%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-14 {
-  top: 6px;
-  left: 217px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 29%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-15 {
-  top: 6px;
-  left: 373px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 51%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-16 {
-  top: 6px;
-  left: 533px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 73%;
+  width: 20%;
+  height: 18%;
 }
+/* ---------------------------------------------------- */
 
-/* page5 (잠들기전에~) */
+/* ---------------------------------------------------- */
+/* page5 */
 .measure-17 {
-  top: 6px;
-  left: 53px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 7%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-18 {
-  top: 6px;
-  left: 214px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 29%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-19 {
-  top: 6px;
-  left: 372px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 51%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-20 {
-  top: 6px;
-  left: 531px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 73%;
+  width: 20%;
+  height: 18%;
 }
+/* ---------------------------------------------------- */
 
-/* page6 (예뻤어~) */
+/* ---------------------------------------------------- */
+/* page6 */
 .measure-21 {
-  top: 6px;
-  left: 53px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 7%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-22 {
-  top: 6px;
-  left: 215px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 29%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-23 {
-  top: 6px;
-  left: 373px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 51%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-24 {
-  top: 6px;
-  left: 532px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 73%;
+  width: 20%;
+  height: 18%;
 }
+/* ---------------------------------------------------- */
 
-/* page7 (다~) -> 좀 빠른데 조절하기 */
+/* ---------------------------------------------------- */
+/* page7 */
 .measure-25 {
-  top: 5.5px;
-  left: 53px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 7%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-26 {
-  top: 5.5px;
-  left: 214px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 29%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-27 {
-  top: 5.5px;
-  left: 373px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 51%;
+  width: 20%;
+  height: 18%;
 }
 
 .measure-28 {
-  top: 5.5px;
-  left: 531px;
-  width: 165px;
-  height: 112px;
+  top: 2%;
+  left: 73%;
+  width: 20%;
+  height: 18%;
 }
+/* ---------------------------------------------------- */
 
-/* page8 (예뻤어~ 2번째) */
+/* ---------------------------------------------------- */
+/* page8 */
 .measure-29 {
-  top: 6px;
-  left: 54px;
-  width: 168px;
-  height: 121px;
+  top: 2%;
+  left: 7%;
+  width: 20%;
+  height: 20%;
 }
 
 .measure-30 {
-  top: 6px;
-  left: 220px;
-  width: 168px;
-  height: 121px;
+  top: 2%;
+  left: 29%;
+  width: 20%;
+  height: 20%;
 }
 
 .measure-31 {
-  top: 6px;
-  left: 377px;
-  width: 168px;
-  height: 121px;
+  top: 2%;
+  left: 51%;
+  width: 20%;
+  height: 20%;
 }
 
 .measure-32 {
-  top: 6px;
-  left: 532px;
-  width: 168px;
-  height: 121px;
+  top: 2%;
+  left: 73%;
+  width: 20%;
+  height: 20%;
 }
+/* ---------------------------------------------------- */
 
-/* page9 (다~ 2번째) */
+/* ---------------------------------------------------- */
+/* page9 */
 .measure-33 {
-  top: 6px;
-  left: 55px;
-  width: 171px;
-  height: 121px;
+  top: 2%;
+  left: 7%;
+  width: 20%;
+  height: 20%;
 }
 
 .measure-34 {
-  top: 6px;
-  left: 222px;
-  width: 171px;
-  height: 121px;
+  top: 2%;
+  left: 29%;
+  width: 20%;
+  height: 20%;
 }
 
 .measure-35 {
-  top: 6px;
-  left: 377px;
-  width: 171px;
-  height: 121px;
+  top: 2%;
+  left: 51%;
+  width: 20%;
+  height: 20%;
 }
 
 .measure-36 {
-  top: 6px;
-  left: 534px;
-  width: 171px;
-  height: 121px;
+  top: 2%;
+  left: 73%;
+  width: 20%;
+  height: 20%;
 }
+/* ---------------------------------------------------- */

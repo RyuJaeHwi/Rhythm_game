@@ -1,7 +1,7 @@
 // src/components/RhythmGame/game_onepage.js
 import React, { useState, useEffect, useCallback } from "react";
-import "./game_onepage.css"; // CSS 파일 불러오기
-import onepageNotes from "./note_onepage"; // "한 페이지가 될 수 있게" 채보 데이터 불러오기
+import "./game_onepage.css";
+import onepageNotes from "./note_onepage";
 
 const GameOnePage = ({ isPlaying, onGameEnd }) => {
   const [isAKeyPressed, setIsAKeyPressed] = useState(false);
@@ -73,7 +73,7 @@ const GameOnePage = ({ isPlaying, onGameEnd }) => {
             setHitResult((prev) => ({ ...prev, [position]: "" }));
           }, 300);
 
-          return false; // 노트 제거
+          return false;
         }
         return true;
       })
@@ -155,16 +155,17 @@ const GameOnePage = ({ isPlaying, onGameEnd }) => {
     badCount,
   ]);
 
+  /* UI 구성 */
   return (
     <div className="onepage_game_container">
       <div
         className="onepage_square1"
-        style={{ backgroundColor: isAKeyPressed ? "#ffffff" : "#cab7cb" }}
+        style={{ backgroundColor: isAKeyPressed ? "#c3b1da" : "#afa1d5" }}
       >
-        {/* 기준선 추가 */}
+        {/* 기준선 */}
         <div
           className="onepage_horizontal_line"
-          style={{ top: `${targetLineY}px` }} // 기준선 위치 조정
+          style={{ top: `${targetLineY}px` }}
         ></div>
         {/* 판정 결과 표시 */}
         {hitResult.a && (
@@ -187,12 +188,12 @@ const GameOnePage = ({ isPlaying, onGameEnd }) => {
       </div>
       <div
         className="onepage_square2"
-        style={{ backgroundColor: isSKeyPressed ? "#ffffff" : "#b2c9ab" }}
+        style={{ backgroundColor: isSKeyPressed ? "#ad9cc3" : "#a287b9" }}
       >
-        {/* 기준선 추가 */}
+        {/* 기준선 */}
         <div
           className="onepage_horizontal_line"
-          style={{ top: `${targetLineY}px` }} // 기준선 위치 조정
+          style={{ top: `${targetLineY}px` }}
         ></div>
         {/* 판정 결과 표시 */}
         {hitResult.s && (
@@ -215,12 +216,12 @@ const GameOnePage = ({ isPlaying, onGameEnd }) => {
       </div>
       <div
         className="onepage_square3"
-        style={{ backgroundColor: isDKeyPressed ? "#ffffff" : "#abc2e8" }}
+        style={{ backgroundColor: isDKeyPressed ? "#dabfdc" : "#c0abc8" }}
       >
-        {/* 기준선 추가 */}
+        {/* 기준선 */}
         <div
           className="onepage_horizontal_line"
-          style={{ top: `${targetLineY}px` }} // 기준선 위치 조정
+          style={{ top: `${targetLineY}px` }}
         ></div>
         {/* 판정 결과 표시 */}
         {hitResult.d && (

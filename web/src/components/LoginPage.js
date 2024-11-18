@@ -82,7 +82,10 @@ const LoginPage = () => {
 
       {/* 회원가입으로 이동 버튼 */}
       <div>
-        <button className="go_signup_button" onClick={() => navigate("/signup")}>
+        <button
+          className="go_signup_button"
+          onClick={() => navigate("/signup")}
+        >
           회원가입
         </button>
       </div>

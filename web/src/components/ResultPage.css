@@ -33,15 +33,16 @@
 .result_back_button {
   padding: 10px 20px;
   font-size: 20px;
+  font-weight: bold;
   color: #000000;
   background-color: #bcb2d3;
-  border: none;
+  border: 3px solid #b490b8;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 32px; /* 버튼과 위 요소 사이의 간격을 넓히기 위해 추가 */
 }
 
-.back_button:hover {
-  background-color: #c5ddb5;
+.result_back_button:hover {
+  background-color: #6a5169;
 }
