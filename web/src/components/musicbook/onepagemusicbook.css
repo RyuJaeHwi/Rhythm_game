@@ -1,23 +1,20 @@
 /* src/components/musicbook/onepagemusicbook.css */
 /* 마디별 네모박스로 연주할 부분 표시해주는 css 코드 */
-// onepagemusicbook.css | 2024.10.30 '연습하기' 페이지에 "한 페이지가 될 수 있게" 악보 기능 추가 (.css 디자인 코드)
-// /practice 페이지를 구성하는 PracticePage.js가 호출하여 사용하는 코드를 꾸며주는 .css 코드 (악보 기능 추가해줌)
-
-.musicbook {
+.onepage_musicbook {
   position: relative;
 }
 
-.imagebox_field {
+.onepage_imagebox_field {
   position: relative;
   display: inline-block;
 }
 
-.sheet_image {
+/* .onepage_sheet_image {
   width: 100%;
   height: auto;
-}
+} */
 
-.red_box {
+.onepage_red_box {
   position: absolute;
   border: 3px solid red;
   pointer-events: none;
@@ -28,30 +25,30 @@
 
 /* ---------------------------------------------------- */
 /* page1 */
-.measure-1 {
-  top: 40%;
-  left: 14.8%;
-  width: 21%;
+.onepage_measure-1 {
+  top: 45%;
+  left: 12%;
+  width: 26%;
   height: 50%;
 }
 
-.measure-2 {
-  top: 40%;
-  left: 35%;
-  width: 21%;
+.onepage_measure-2 {
+  top: 45%;
+  left: 36.5%;
+  width: 22%;
   height: 50%;
 }
 
-.measure-3 {
-  top: 40%;
-  left: 54.8%;
-  width: 21%;
+.onepage_measure-3 {
+  top: 45%;
+  left: 57%;
+  width: 22%;
   height: 50%;
 }
 
-.measure-4 {
-  top: 40%;
-  left: 74.5%;
+.onepage_measure-4 {
+  top: 45%;
+  left: 77.3%;
   width: 21%;
   height: 50%;
 }
@@ -59,95 +56,499 @@
 
 /* ---------------------------------------------------- */
 /* page2 */
-.measure-5 {
-  top: 3%;
+.onepage_measure-5 {
+  top: 4%;
   left: 8%;
-  width: 22%;
+  width: 23%;
   height: 82%;
 }
 
-.measure-6 {
-  top: 3%;
-  left: 31%;
-  width: 22%;
+.onepage_measure-6 {
+  top: 4%;
+  left: 31.7%;
+  width: 23%;
   height: 82%;
 }
 
-.measure-7 {
-  top: 3%;
-  left: 53%;
-  width: 22%;
+.onepage_measure-7 {
+  top: 4%;
+  left: 53.7%;
+  width: 23%;
   height: 82%;
 }
 
-.measure-8 {
-  top: 3%;
-  left: 75%;
-  width: 22%;
+.onepage_measure-8 {
+  top: 4%;
+  left: 75.8%;
+  width: 23%;
   height: 82%;
 }
 /* ---------------------------------------------------- */
 
 /* ---------------------------------------------------- */
 /* page3 */
-.measure-9 {
-  top: 2%;
-  left: 7%;
-  width: 20%;
-  height: 18%;
+.onepage_measure-9 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
 }
 
-.measure-10 {
-  top: 2%;
-  left: 29%;
-  width: 20%;
-  height: 18%;
+.onepage_measure-10 {
+  top: 4%;
+  left: 31.5%;
+  width: 23%;
+  height: 82%;
 }
 
-.measure-11 {
-  top: 2%;
-  left: 51%;
-  width: 20%;
-  height: 18%;
+.onepage_measure-11 {
+  top: 4%;
+  left: 53.7%;
+  width: 23%;
+  height: 82%;
 }
 
-.measure-12 {
-  top: 2%;
-  left: 73%;
-  width: 20%;
-  height: 18%;
+.onepage_measure-12 {
+  top: 4%;
+  left: 75.8%;
+  width: 23%;
+  height: 82%;
 }
 /* ---------------------------------------------------- */
 
 /* ---------------------------------------------------- */
 /* page4 */
-.measure-13 {
-  top: 2%;
-  left: 7%;
-  width: 20%;
-  height: 18%;
+.onepage_measure-13 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
 }
 
-.measure-14 {
-  top: 2%;
-  left: 29%;
-  width: 20%;
-  height: 18%;
+.onepage_measure-14 {
+  top: 4%;
+  left: 31.5%;
+  width: 23%;
+  height: 82%;
 }
 
-.measure-15 {
-  top: 2%;
-  left: 51%;
-  width: 20%;
-  height: 18%;
+.onepage_measure-15 {
+  top: 4%;
+  left: 53.7%;
+  width: 23%;
+  height: 82%;
 }
 
-.measure-16 {
-  top: 2%;
-  left: 73%;
-  width: 20%;
-  height: 18%;
+.onepage_measure-16 {
+  top: 4%;
+  left: 75.8%;
+  width: 23%;
+  height: 82%;
 }
 /* ---------------------------------------------------- */
 
-/* 추가 페이지는 이전과 동일한 방식으로 추가합니다. */
+/* ---------------------------------------------------- */
+/* page5 */
+.onepage_measure-17 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+/* 가사 시작 */
+.onepage_measure-18 {
+  top: 4%;
+  left: 31.5%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-19 {
+  top: 4%;
+  left: 53.7%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-20 {
+  top: 4%;
+  left: 75.8%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page6 */
+.onepage_measure-21 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+/* 오늘이 오길 ~ */
+.onepage_measure-22 {
+  top: 4%;
+  left: 30.5%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-23 {
+  top: 4%;
+  left: 53%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-24 {
+  top: 4%;
+  left: 75.8%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page7 */
+.onepage_measure-25 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-26 {
+  top: 4%;
+  left: 31%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-27 {
+  top: 4%;
+  left: 53.5%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-28 {
+  top: 4%;
+  left: 76.3%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page8 */
+.onepage_measure-29 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-30 {
+  top: 4%;
+  left: 31.5%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-31 {
+  top: 4%;
+  left: 54%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-32 {
+  top: 4%;
+  left: 76.5%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page9 */
+.onepage_measure-33 {
+  top: 4%;
+  left: 8%;
+  width: 24%;
+  height: 82%;
+}
+
+.onepage_measure-34 {
+  top: 4%;
+  left: 32%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-35 {
+  top: 4%;
+  left: 54%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-36 {
+  top: 4%;
+  left: 76.3%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page10 */
+.onepage_measure-37 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-38 {
+  top: 4%;
+  left: 32%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-39 {
+  top: 4%;
+  left: 54%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-40 {
+  top: 4%;
+  left: 76.3%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page11 (후렴구 시작파트 있음) */
+.onepage_measure-41 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-42 {
+  top: 4%;
+  left: 32%;
+  width: 23%;
+  height: 82%;
+}
+
+/* 후렴구 시작 */
+.onepage_measure-43 {
+  top: 4%;
+  left: 54%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-44 {
+  top: 4%;
+  left: 76.3%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page12 */
+.onepage_measure-45 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-46 {
+  top: 4%;
+  left: 32%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-47 {
+  top: 4%;
+  left: 54%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-48 {
+  top: 4%;
+  left: 76.3%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page13 */
+.onepage_measure-49 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-50 {
+  top: 4%;
+  left: 32%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-51 {
+  top: 4%;
+  left: 54%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-52 {
+  top: 4%;
+  left: 76.3%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page14 */
+.onepage_measure-53 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-54 {
+  top: 4%;
+  left: 32%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-55 {
+  top: 4%;
+  left: 54%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-56 {
+  top: 4%;
+  left: 76.3%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page15 */
+.onepage_measure-57 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-58 {
+  top: 4%;
+  left: 32%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-59 {
+  top: 4%;
+  left: 54%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-60 {
+  top: 4%;
+  left: 76.3%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page16 */
+.onepage_measure-61 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-62 {
+  top: 4%;
+  left: 32%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-63 {
+  top: 4%;
+  left: 54%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-64 {
+  top: 4%;
+  left: 76.3%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */
+
+/* ---------------------------------------------------- */
+/* page17 */
+.onepage_measure-65 {
+  top: 4%;
+  left: 8%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-66 {
+  top: 4%;
+  left: 31%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-67 {
+  top: 4%;
+  left: 53%;
+  width: 23%;
+  height: 82%;
+}
+
+.onepage_measure-68 {
+  top: 4%;
+  left: 75.7%;
+  width: 23%;
+  height: 82%;
+}
+/* ---------------------------------------------------- */

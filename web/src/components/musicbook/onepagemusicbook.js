@@ -42,8 +42,8 @@ const OnePageMusicBook = () => {
       { time: 38500, image: onepage_Image8 },
       { time: 43900, image: onepage_Image9 },
       { time: 49500, image: onepage_Image10 },
-      { time: 54500, image: onepage_Image11 },
-      { time: 60710, image: onepage_Image12 },
+      { time: 54900, image: onepage_Image11 }, // 후렴구 시작
+      { time: 60510, image: onepage_Image12 },
       { time: 66000, image: onepage_Image13 },
       { time: 71200, image: onepage_Image14 },
       { time: 77000, image: onepage_Image15 },
@@ -52,26 +52,142 @@ const OnePageMusicBook = () => {
     ];
 
     const highlightTiming = [
+      /* ---------------------------------------------------- */
+      /* page1 */
       { time: 0, measure: 1 },
       { time: 1500, measure: 2 },
       { time: 2800, measure: 3 },
       { time: 4100, measure: 4 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page2 */
       { time: 5500, measure: 5 },
       { time: 6700, measure: 6 },
       { time: 8300, measure: 7 },
       { time: 9600, measure: 8 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page3 */
       { time: 10700, measure: 9 },
       { time: 12500, measure: 10 },
       { time: 13930, measure: 11 },
       { time: 15200, measure: 12 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page4 */
       { time: 16500, measure: 13 },
       { time: 18070, measure: 14 },
       { time: 19130, measure: 15 },
       { time: 20530, measure: 16 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page5 */
       { time: 21900, measure: 17 },
       { time: 23300, measure: 18 },
       { time: 24970, measure: 19 },
       { time: 26420, measure: 20 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page6 */
+      { time: 27400, measure: 21 },
+      { time: 28800, measure: 22 },
+      { time: 30200, measure: 23 },
+      { time: 31600, measure: 24 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page7 */
+      { time: 32900, measure: 25 },
+      { time: 34300, measure: 26 },
+      { time: 35700, measure: 27 },
+      { time: 37100, measure: 28 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page8 */
+      { time: 38500, measure: 29 },
+      { time: 39900, measure: 30 },
+      { time: 41300, measure: 31 },
+      { time: 42600, measure: 32 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page9 */
+      { time: 43900, measure: 33 },
+      { time: 45300, measure: 34 },
+      { time: 46700, measure: 35 },
+      { time: 48100, measure: 36 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page10 */
+      { time: 49500, measure: 37 },
+      { time: 50900, measure: 38 },
+      { time: 52300, measure: 39 },
+      { time: 53700, measure: 40 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page11 */
+      // 후렴구 시작 (43번째 부터...)
+      { time: 54900, measure: 41 },
+      { time: 56200, measure: 42 },
+      { time: 57600, measure: 43 },
+      { time: 59000, measure: 44 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page12 */
+      { time: 60510, measure: 45 },
+      { time: 61910, measure: 46 },
+      { time: 63310, measure: 47 },
+      { time: 64710, measure: 48 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page13 (아무걱정도 ~) */
+      { time: 66000, measure: 49 },
+      { time: 67400, measure: 50 },
+      { time: 68800, measure: 51 },
+      { time: 70200, measure: 52 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page14 */
+      { time: 71200, measure: 53 },
+      { time: 72600, measure: 54 },
+      { time: 74000, measure: 55 },
+      { time: 75400, measure: 56 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page15 */
+      { time: 77000, measure: 57 },
+      { time: 78400, measure: 58 },
+      { time: 79800, measure: 59 },
+      { time: 81200, measure: 60 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page16 */
+      { time: 82000, measure: 61 },
+      { time: 83400, measure: 62 },
+      { time: 84800, measure: 63 },
+      { time: 86200, measure: 64 },
+      /* ---------------------------------------------------- */
+
+      /* ---------------------------------------------------- */
+      /* page17 */
+      { time: 88000, measure: 65 },
+      { time: 89400, measure: 66 },
+      { time: 90800, measure: 67 },
+      { time: 92200, measure: 68 },
+      /* ---------------------------------------------------- */
     ];
 
     changeScoreImage.forEach(({ time, image }) => {
@@ -104,15 +220,17 @@ const OnePageMusicBook = () => {
   }, [handleMusicStart]);
 
   return (
-    <div className="musicbook">
-      <div className="imagebox_field">
+    <div className="onepage_musicbook">
+      <div className="onepage_imagebox_field">
         <img
           src={currentScoreImage}
           alt="Score Sheet"
           className="sheet_image"
         />
         {highlightedMeasure && (
-          <div className={`red_box measure-${highlightedMeasure}`}></div>
+          <div
+            className={`onepage_red_box onepage_measure-${highlightedMeasure}`}
+          ></div>
         )}
       </div>
     </div>
