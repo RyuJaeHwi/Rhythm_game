@@ -7,8 +7,8 @@ import "./GameSelectPage.css"; // (수정된 부분)
 import noSongCover from "../images/no_song_cover.png";
 import prettyCover from "../images/DAY6-예뻤어_cover.png";
 import onepageCover from "../images/DAY6-한 페이지가 될 수 있게_cover.png";
-import smartphonePreview from "../music/DAY6-예뻤어.mp3";
-import hateRodrigoPreview from "../music/DAY6-한 페이지가 될 수 있게.mp3";
+import PrettyPreview from "../music/DAY6-예뻤어.mp3";
+import OnepagePreview from "../music/DAY6-한 페이지가 될 수 있게.mp3";
 import songPlayerIcon from "../images/song_player.png";
 
 const GameSelectPage = () => {
@@ -99,7 +99,7 @@ const GameSelectPage = () => {
               {
                 title: "예뻤어 - DAY6",
                 cover: prettyCover,
-                preview: smartphonePreview,
+                preview: PrettyPreview,
               },
               highlightTimes.pretty_highlight
             )
@@ -121,7 +121,7 @@ const GameSelectPage = () => {
               {
                 title: "한페이지가될수있게 - DAY6",
                 cover: onepageCover,
-                preview: hateRodrigoPreview,
+                preview: OnepagePreview,
               },
               highlightTimes.onepage_highlight
             )
