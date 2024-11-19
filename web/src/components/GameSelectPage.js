@@ -23,7 +23,7 @@ const GameSelectPage = () => {
   };
 
   // 노래 제목 클릭 시 -> 미리듣기 기능 작동
-  const handleSongClick = (song, HighlightStartTime) => {
+  const ClickSongTitle = (song, HighlightStartTime) => {
     // 이전에 재생 중인 미리듣기 정지
     if (audio) {
       audio.pause();
@@ -55,12 +55,12 @@ const GameSelectPage = () => {
     };
   }, [audio]);
 
-  const handleGoToMain = () => {
+  const GoBack_GameSelecttoMain = () => {
     navigate("/main"); // 메인 페이지(/main)로 이동
   };
 
   // /game 페이지로 이동 (리듬게임 시작)
-  const handleStartGame = () => {
+  const Go_GameStart = () => {
     if (selectedSong) {
       navigate("/game", { state: { song: selectedSong } }); // 선택한 음악 데이터 전달
     }
@@ -76,7 +76,7 @@ const GameSelectPage = () => {
           <div className="selected_song">
             <img src={selectedSong.cover} alt="Album Cover" />
             <h2>{selectedSong.title}</h2>
-            <button className="game_start_button" onClick={handleStartGame}>
+            <button className="game_start_button" onClick={Go_GameStart}>
               시작하기
             </button>
           </div>
@@ -95,7 +95,7 @@ const GameSelectPage = () => {
           type="button"
           className="game_listed_song"
           onClick={() =>
-            handleSongClick(
+            ClickSongTitle(
               {
                 title: "예뻤어 - DAY6",
                 cover: prettyCover,
@@ -117,7 +117,7 @@ const GameSelectPage = () => {
           type="button"
           className="game_listed_song"
           onClick={() =>
-            handleSongClick(
+            ClickSongTitle(
               {
                 title: "한페이지가될수있게 - DAY6",
                 cover: onepageCover,
@@ -140,7 +140,7 @@ const GameSelectPage = () => {
       <button
         type="button"
         className="game_select_go_main_button"
-        onClick={handleGoToMain}
+        onClick={GoBack_GameSelecttoMain}
       >
         메인으로
       </button>

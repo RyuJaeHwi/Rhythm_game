@@ -25,12 +25,12 @@ const MainPage = () => {
   };
 
   // 마이페이지 버튼을 클릭했을 때 마이페이지로 이동
-  const handleMyPage = () => {
+  const Go_MaintoMyPage = () => {
     navigate("/mypage"); // MyPage로 이동
   };
 
   // 연습하기 버튼을 클릭했을 때 SelectPage로 이동
-  const handlePractice = () => {
+  const Go_MaintoSelect = () => {
     navigate("/select"); // SelectPage로 이동
   };
 
@@ -40,7 +40,7 @@ const MainPage = () => {
   // }
 
   // 게임하기 버튼을 눌렀을 때 GameSelectPage로 이동 (수정된 부분)
-  const handleGame = () => {
+  const Go_MaintoGameSelect = () => {
     navigate("/game_select"); // GameSelectPage로 이동 (수정된 부분)
   };
 
@@ -55,17 +55,17 @@ const MainPage = () => {
 
       {/* 메인페이지 버튼 전체 묶음 폼 */}
       <div className="main_button_form">
-        <button className="main_practice_button" onClick={handlePractice}>
+        <button className="main_practice_button" onClick={Go_MaintoSelect}>
           연습하기
         </button>
 
-        <button className="main_game_button" onClick={handleGame}>
+        <button className="main_game_button" onClick={Go_MaintoGameSelect}>
           게임하기
         </button>
       </div>
       {/* 메인페이지 링크(URL) 전체 묶음 폼 */}
       <div className="mainpage_link_form">
-        <p className="mypage_link" onClick={handleMyPage}>
+        <p className="mypage_link" onClick={Go_MaintoMyPage}>
           마이페이지
         </p>
         <p className="logout_link" onClick={handleLogout}>

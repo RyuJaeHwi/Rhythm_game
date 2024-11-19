@@ -67,7 +67,7 @@ const GamePage = () => {
   }, [selectedSong]);
 
   // 음악 재생 버튼 클릭 시 실행
-  const handlePlayClick = async () => {
+  const ClickSongPlayButton = async () => {
     if (audioRef.current) {
       try {
         await audioRef.current.play();
@@ -75,7 +75,7 @@ const GamePage = () => {
 
         // 음악 재생이 끝남 -> 게임 종료
         audioRef.current.onended = () => {
-          handleGameEnd(); // 아래 점수 계산 함수로 이동
+          FinishRhythmGame(); // 아래 점수 계산 함수로 이동
         };
       } catch (error) {
         console.error("Audio play error:", error);
@@ -84,7 +84,7 @@ const GamePage = () => {
   };
 
   // 게임 종료 후 점수 계산 함수
-  const handleGameEnd = (gameResult) => {
+  const FinishRhythmGame = (gameResult) => {
     if (gameResult) {
       setScoreDetails(gameResult);
       setAccuracy(gameResult.accuracy);
@@ -107,7 +107,7 @@ const GamePage = () => {
   //   navigate("/result", { state: { accuracy, scoreDetails } });
   // };
   // '결과보기' 버튼 클릭 시 실행
-  const handleResultClick = () => {
+  const Go_ResultButton = () => {
     navigate("/result", {
       state: { scoreDetails },
     });
@@ -187,25 +187,25 @@ const GamePage = () => {
             <GamePretty
               selectedSong={selectedSong}
               isPlaying={isPlaying}
-              onGameEnd={handleGameEnd}
+              onGameEnd={FinishRhythmGame}
             />
           )}
           {selectedSong?.title === "한페이지가될수있게 - DAY6" && (
             <GameOnePage
               selectedSong={selectedSong}
               isPlaying={isPlaying}
-              onGameEnd={handleGameEnd}
+              onGameEnd={FinishRhythmGame}
             />
           )}
         </div>
 
         <div className="game_controls">
           {/* 추가한 파트: 재생 및 일시정지 버튼 */}
-          <button onClick={handlePlayClick} className="play_button">
+          <button onClick={ClickSongPlayButton} className="play_button">
             재생
           </button>
           {accuracy !== null && (
-            <button onClick={handleResultClick} className="result_button">
+            <button onClick={Go_ResultButton} className="result_button">
               결과보기
             </button>
           )}

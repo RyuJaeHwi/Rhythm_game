@@ -7,8 +7,8 @@ import "./SelectPage.css";
 import noSongCover from "../images/no_song_cover.png";
 import prettyCover from "../images/DAY6-예뻤어_cover.png";
 import onepageCover from "../images/DAY6-한 페이지가 될 수 있게_cover.png";
-import smartphonePreview from "../music/DAY6-예뻤어.mp3";
-import hateRodrigoPreview from "../music/DAY6-한 페이지가 될 수 있게.mp3";
+import PrettyPreview from "../music/DAY6-예뻤어.mp3";
+import OnepagePreview from "../music/DAY6-한 페이지가 될 수 있게.mp3";
 import songPlayerIcon from "../images/song_player.png";
 
 const SelectPage = () => {
@@ -23,7 +23,7 @@ const SelectPage = () => {
   };
 
   // 노래 제목 클릭 시 -> 미리듣기 기능 작동
-  const handleSongClick = (song, HighlightStartTime) => {
+  const ClickSongTitle = (song, HighlightStartTime) => {
     // 이전에 재생 중인 미리듣기 정지
     if (audio) {
       audio.pause();
@@ -55,12 +55,12 @@ const SelectPage = () => {
     };
   }, [audio]);
 
-  const handleGoToMain = () => {
+  const GoBack_SelecttoMain = () => {
     navigate("/main"); // 메인 페이지(/main)로 이동
   };
 
   // /practice 페이지로 이동
-  const handleStartPractice = () => {
+  const Go_PracticeStart = () => {
     if (selectedSong) {
       navigate("/practice", { state: { song: selectedSong } }); // 선택한 음악 데이터 전달
     }
@@ -78,7 +78,7 @@ const SelectPage = () => {
             <h2>{selectedSong.title}</h2>
             <button
               className="practice_start_button"
-              onClick={handleStartPractice}
+              onClick={Go_PracticeStart}
             >
               시작하기
             </button>
@@ -98,11 +98,11 @@ const SelectPage = () => {
           type="button"
           className="listed_song"
           onClick={() =>
-            handleSongClick(
+            ClickSongTitle(
               {
                 title: "예뻤어 - DAY6",
                 cover: prettyCover,
-                preview: smartphonePreview,
+                preview: PrettyPreview,
               },
               highlightTimes.pretty_highlight
             )
@@ -121,11 +121,11 @@ const SelectPage = () => {
           type="button"
           className="listed_song"
           onClick={() =>
-            handleSongClick(
+            ClickSongTitle(
               {
                 title: "한페이지가될수있게 - DAY6",
                 cover: onepageCover,
-                preview: hateRodrigoPreview,
+                preview: OnepagePreview,
               },
               highlightTimes.onepage_highlight
             )
@@ -144,7 +144,7 @@ const SelectPage = () => {
       <button
         type="button"
         className="select_go_main_button"
-        onClick={handleGoToMain}
+        onClick={GoBack_SelecttoMain}
       >
         메인으로
       </button>

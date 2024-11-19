@@ -50,7 +50,7 @@ const SignupPage = () => {
   };
 
   // 로그인 페이지로 이동
-  const handleLoginRedirect = () => {
+  const GoBack_SignuptoLogin = () => {
     navigate("/login");
   };
 
@@ -66,14 +66,24 @@ const SignupPage = () => {
             <label htmlFor="username" className="signup_label">
               아이디
             </label>
-            <input type="email" id="username" className="signup_input" required />
+            <input
+              type="email"
+              id="username"
+              className="signup_input"
+              required
+            />
           </div>
           {/* 닉네임 라벨 & input창 */}
           <div className="signup_name">
             <label htmlFor="nickname" className="signup_label">
               닉네임
             </label>
-            <input type="text" id="nickname" className="signup_input" required />
+            <input
+              type="text"
+              id="nickname"
+              className="signup_input"
+              required
+            />
           </div>
         </div>
         {/* 회원가입 페이지 폼 아래 라인 묶음 (password, repassword) */}
@@ -119,7 +129,7 @@ const SignupPage = () => {
           <button
             type="button"
             className="back_loginpage_button"
-            onClick={handleLoginRedirect}
+            onClick={GoBack_SignuptoLogin}
           >
             로그인 화면으로
           </button>

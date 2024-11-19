@@ -6,7 +6,7 @@ const GoBackGameSelectButton = ({ onResetSelection }) => {
   const navigate = useNavigate();
 
   // '돌아가기' 버튼 기능 함수
-  const handleGoBack = () => {
+  const GoBack_GametoGameSelect = () => {
     if (typeof onResetSelection === "function") {
       onResetSelection(); // 선택된 노래 정보 초기화
     }
@@ -14,7 +14,7 @@ const GoBackGameSelectButton = ({ onResetSelection }) => {
   };
 
   return (
-    <button className="goback_button" onClick={handleGoBack}>
+    <button className="goback_button" onClick={GoBack_GametoGameSelect}>
       돌아가기
     </button>
   );

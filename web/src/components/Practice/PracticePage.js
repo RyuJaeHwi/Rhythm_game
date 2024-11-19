@@ -48,7 +48,7 @@ const PracticePage = () => {
     return null;
   }
 
-  const resetSelection = () => {
+  const GoBack_PracticetoSelect = () => {
     navigate("/select", { replace: true });
   };
 
@@ -69,7 +69,7 @@ const PracticePage = () => {
         )}
       </div>
 
-      <GoBackSelectButton onResetSelection={resetSelection} />
+      <GoBackSelectButton onResetSelection={GoBack_PracticetoSelect} />
     </div>
   );
 };
