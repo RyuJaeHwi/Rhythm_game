@@ -183,6 +183,16 @@ const GamePage = () => {
         <GoBackGameSelectButton onResetSelection={resetSelection} />
 
         <div className="game_component">
+          <div className="kick_text">
+            <span>Kick</span>
+          </div>
+          <div className="pad_text">
+            <span>Pad</span>
+          </div>
+          <div className="hihat_text">
+            <span>Hi-hat</span>
+          </div>
+
           {selectedSong?.title === "예뻤어 - DAY6" && (
             <GamePretty
               selectedSong={selectedSong}

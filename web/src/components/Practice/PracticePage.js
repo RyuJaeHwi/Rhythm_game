@@ -7,6 +7,10 @@ import "./PracticePage.css";
 import PrettyMusicBook from "../musicbook/prettymusicbook";
 import OnePageMusicBook from "../musicbook/onepagemusicbook";
 import GoBackSelectButton from "./goback_selectbutton";
+/* 드럼아이콘 이미지 추가 */
+import kickIcon from "../../images/kick_icon.png";
+import padIcon from "../../images/pad_icon.png";
+import hihatIcon from "../../images/hihat_icon.png";
 
 const PracticePage = () => {
   const location = useLocation();
@@ -54,6 +58,21 @@ const PracticePage = () => {
 
   return (
     <div className="practicepage">
+      {/* 아이콘 영역 */}
+      <div className="icon_set">
+        <div className="icon_item">
+          <img src={hihatIcon} alt="Hi-hat Icon" className="icon_image" />
+          <span>Hi-hat</span>
+        </div>
+        <div className="icon_item">
+          <img src={padIcon} alt="Pad Icon" className="icon_image" />
+          <span>Pad</span>
+        </div>
+        <div className="icon_item">
+          <img src={kickIcon} alt="Kick Icon" className="icon_image" />
+          <span>Kick</span>
+        </div>
+      </div>
       {/* 앨범 커버 이미지 */}
       <div className="album_cover">
         <img src={selectedSong.cover} alt="Album Cover" />
